@@ -1,1 +1,56 @@
-/* место для вашего кода */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding:0;
+    width: 1100px;
+    height: 293px;
+    display: flex;
+    
+}
+
+.menu {
+    width: 391.48px;
+    height: 22px;
+    margin-left: 50px;
+    margin-top:133px;
+    margin-right: 658.52px;
+}
+.menu__list-link {
+    text-decoration: none;
+    font-family: Raleway;
+    text-transform: lowercase;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+
+}
+
+.menu__list-link[href="#lots"]
+{
+    text-decoration: underline;
+}
+.menu__list-link[href="#about"] {
+    text-decoration: underline;
+}
+.menu__list {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    }
+    .logo__img {
+    display: flex;
+    width: 148px;
+    height: 105px;
+    align-items: center;
+    margin-right: 478px;
+    margin-top: 92px;
+    margin-left: 474px;
+    margin-left: 96px;
+    align-self: center;
+    }

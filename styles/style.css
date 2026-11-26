@@ -140,9 +140,9 @@ body {
   display: grid;
   /* 50 | контакты 264.57 | 154.03 | меню 163.9 | 177.5 | соцсети 240 | 50 */
   grid-template-columns: 50px 264.57px 154.03px 163.9px 177.5px 240px 50px;
-  /* первая строка — по высоте контента, вторая — нижний отступ */
-  grid-template-rows: auto 82px;
-  padding: 0;
+  /* высота строки зависит от контента, нижний отступ задан padding */
+  grid-template-rows: auto;
+  padding: 0 0 82px;
 }
 
 .footer .address {
@@ -254,7 +254,9 @@ body {
   display: grid;
   grid-template-columns: 50px 637px 107px 256px 50px;
   /* 165px паддинг + 385px заголовок (3 × 115px + 2 зазора по 20px) + 106px зазор = 656px */
-  grid-template-rows: auto 106px auto;
+  /* высота строк зависит от контента, зазор 106px задан row-gap */
+  grid-template-rows: auto auto;
+  row-gap: 106px;
   align-content: start;
 }
 
@@ -292,7 +294,8 @@ body {
   bottom: 0;
   left: 0;
   width: 1100px;
-  height: 757px;
+  /* растягивается вместе с секцией, при базовой высоте даёт 757px */
+  height: 100%;
 }
 
 .title__word {
@@ -302,7 +305,8 @@ body {
   font-weight: 700;
   font-size: 100px;
   line-height: 114.99999999999999%;
-  letter-spacing: 20px;
+  /* 30px между буквами: «ОНО» 225.7 + 2 × 30 ≈ 286px по макету */
+  letter-spacing: 30px;
   text-transform: uppercase;
 }
 
@@ -316,17 +320,21 @@ body {
   grid-area: tebe;
   align-self: start;
   text-align: center;
+  /* компенсация «хвостового» letter-spacing, чтобы слово центрировалось по видимой ширине */
+  margin-right: -30px;
 }
 
 .title__word--bottom {
   grid-area: nado;
   align-self: start;
   text-align: right;
+  /* компенсация «хвостового» letter-spacing, чтобы слово прижималось к правому краю */
+  margin-right: -30px;
 }
 
 .description {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 2;
   align-self: center;
   margin: 0;
   z-index: 1;
@@ -350,7 +358,7 @@ body {
 .cover__button {
   z-index: 1;
   grid-column: 4;
-  grid-row: 3;
+  grid-row: 2;
   align-self: start;
   width: 256px;
   padding: 13.5px 0;
@@ -372,7 +380,9 @@ body {
   display: grid;
   grid-template-columns: 40px 192px 820px;
   /* заголовок 47 | 30px до карточек | карточки 596 | 30px до ссылки | ссылка 20 = 723px */
-  grid-template-rows: auto 30px auto 30px auto;
+  /* высота строк зависит от контента, зазоры 30px заданы row-gap */
+  grid-template-rows: auto auto auto;
+  row-gap: 30px;
 }
 
 .lots__title {
@@ -393,7 +403,7 @@ body {
 
 .cards {
   grid-column: 1 / -1;
-  grid-row: 3;
+  grid-row: 2;
 }
 
 .cards__list {
@@ -413,8 +423,10 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: 40px 254px 40px;
+  /* высота строки зависит от контента, отступы 48px заданы padding */
+  grid-template-rows: auto;
   /* 48px — верхний отступ заголовка и нижний отступ текста, между ними контент */
-  grid-template-rows: 48px auto 48px;
+  padding: 48px 0;
   width: 334px;
  min-height: 596px;
   background-size: cover;
@@ -436,7 +448,7 @@ body {
 
 .card__title {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
   align-self: start;
   z-index: 1;
   width: 254px;
@@ -457,7 +469,7 @@ body {
 
 .card__text {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
   align-self: end;
   z-index: 1;
   width: 254px;
@@ -473,7 +485,7 @@ body {
 
 .lots__more {
   grid-column: 2;
-  grid-row: 5;
+  grid-row: 3;
   align-self: start;
   width: 192px;
  font-family: Raleway, Arial, sans-serif;
@@ -499,14 +511,15 @@ body {
   /* 47 | логотип 240 | 72 | контент 693 */
   grid-template-columns: 47px 240px 72px 693px;
   /* 136 (отступ сверху) | заголовок 47 | 100 до текста | текст 312 */
-  /* высоту задаёт контент (595px), иначе лишний min-height добавляется к отступу футера */
-  grid-template-rows: 136px auto 100px auto;
+  /* высота строк зависит от контента, зазор 100px задан row-gap */
+  grid-template-rows: auto auto;
+  row-gap: 100px;
   align-content: start;
 }
 
 .about .logo {
   grid-column: 2;
-  grid-row: 1 / 4;
+  grid-row: 1 / 3;
   align-self: start;
   justify-self: start;
   width: 240px;
@@ -528,7 +541,7 @@ body {
 
 .about .text {
   grid-column: 4;
-  grid-row: 4;
+  grid-row: 2;
   align-self: start;
   margin: 0;
   padding: 0;
@@ -544,11 +557,12 @@ body {
 
 .about__title {
   grid-column: 4;
-  grid-row: 2;
+  grid-row: 1;
   align-self: start;
   justify-self: start;
   white-space: nowrap;
-  margin: 0;
+  /* 136px — отступ сверху до заголовка по макету */
+  margin: 136px 0 0;
   padding: 0;
   font-family: Raleway, Arial, sans-serif;
   font-weight: 700;
